@@ -5,7 +5,6 @@ import data from "../../assets/seedData.json";
 const Table = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello Transactions!</h1>
       <div className={styles.table}>
         <div className={styles.tableHeadings}>
           <div className={styles.id}>ID</div>

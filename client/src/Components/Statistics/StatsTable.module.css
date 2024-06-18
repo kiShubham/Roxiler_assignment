@@ -1,0 +1,22 @@
+.statsHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.table {
+  border: 5px solid #facc15;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  width: 500px;
+  background-color: #fb7185;
+  color: white;
+
+  display: grid;
+  grid-template-columns: 220px 120px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
