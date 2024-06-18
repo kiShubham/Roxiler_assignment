@@ -1,0 +1,73 @@
+.table {
+  display: grid;
+  grid-template-columns: 50px 200px 400px 100px 150px 100px 100px;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 15px;
+  background-color: #93c5fd;
+}
+
+.tableHeadings,
+.transaction {
+  display: contents;
+}
+
+.id {
+  grid-column: 1;
+}
+
+.title {
+  grid-column: 2;
+}
+
+.description {
+  grid-column: 3;
+}
+
+.prices {
+  grid-column: 4;
+}
+
+.category {
+  grid-column: 5;
+}
+
+.sold {
+  grid-column: 6;
+}
+
+.image {
+  grid-column: 7;
+}
+
+.tableHeadings > div {
+  border: 2.5px solid white;
+  font-weight: 500;
+  font-size: larger;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 5px;
+  background-color: #fb7185;
+}
+.transaction > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2.5px solid white;
+  border-radius: 8px;
+  padding: 5px 15px;
+  color: white;
+  font-size: larger;
+  background-color: #93c5fd;
+  background-color: #bfdbfe;
+  background-color: #8b5cf6;
+  font-weight: 500;
+}
+.transaction {
+  /* display: none; */
+}
+.transaction > .description {
+  /* height: 200px; */
+  /* overflow: hidden; */
+}
