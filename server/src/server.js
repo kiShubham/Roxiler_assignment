@@ -3,9 +3,9 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
-//routes
 
-//database connneciton;
+const transactionRoutes = require("./routes/transactions.routes");
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("connected to database 🎆"))
@@ -14,6 +14,7 @@ mongoose
   );
 
 app.get("/", (req, res) => res.send("Hello World!"));
+app.use("/api/transactions", transactionRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`server listening on port ${port}!`));
