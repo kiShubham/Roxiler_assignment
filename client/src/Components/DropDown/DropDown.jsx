@@ -1,9 +1,26 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import styles from "./DropDown.module.css";
 
-const DropDown = () => {
+const DropDown = ({ monthHandler, monthBool }) => {
+  const [bool, setBool] = useState(false);
+
+  const handlebool = () => {
+    if (!bool) window.alert("initialize the data first then select month");
+  };
+  useEffect(() => {
+    setBool(monthBool);
+  }, [monthBool]);
+
   return (
-    <select name="pets" id="pet-select" className={styles.input}>
-      <option value="">--Please choose a month--</option>
+    <select
+      name="pets"
+      id="pet-select"
+      className={styles.input}
+      onChange={(e) => monthHandler(e.target.value)}
+      onClick={handlebool}
+    >
+      <option value="month">- - select a month - -</option>
       <option value="January">January</option>
       <option value="February">February</option>
       <option value="march">March</option>

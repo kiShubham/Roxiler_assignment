@@ -1,8 +1,8 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import styles from "./Table.module.css";
-import data from "../../assets/seedData.json";
+// import data from "../../assets/seedData.json";
 
-const Table = () => {
+const Table = ({ data }) => {
   return (
     <div>
       <div className={styles.table}>
@@ -21,13 +21,13 @@ const Table = () => {
               <div className={styles.id}>{e.id}</div>
               <div className={styles.title}>{e.title}</div>
               <div className={styles.description}>{e.description}</div>
-              <div className={styles.prices}>{e.price}</div>
+              <div className={styles.prices}>{e.price.toFixed(2)}</div>
               <div className={styles.category}>{e.category}</div>
               <div className={styles.sold}>
                 {e.sold === true ? "soldout" : "available"}
               </div>
               <div className={styles.image}>
-                <img width={50} height={50} src={e.image} alt="itemImage" />
+                <img width={68} height={68} src={e.image} alt="itemImage" />
               </div>
             </div>
           );

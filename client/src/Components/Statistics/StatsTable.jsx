@@ -1,12 +1,11 @@
+/* eslint-disable react/prop-types */
 import styles from "./StatsTable.module.css";
-import DropDown from "../DropDown/DropDown";
 
-const StatsTable = () => {
+const StatsTable = ({ month, sale }) => {
   return (
-    <div>
+    <div className={styles.stats}>
       <div className={styles.statsHeader}>
-        <h1>Statistics Dashboard!</h1>
-        <DropDown />
+        stats for the month: {month || "--------"}
       </div>
       <div className={styles.table}>
         <div className={styles.tableHeadings}>
@@ -14,10 +13,11 @@ const StatsTable = () => {
           <div className={styles.sold}>Total sold Item</div>
           <div className={styles.notSold}>Total not sold Item</div>
         </div>
+        <div className={styles.line}></div>
         <div className={styles.stats}>
-          <div className={styles.sale}>100000</div>
-          <div className={styles.sold}>55</div>
-          <div className={styles.notSold}>15</div>
+          <div className={styles.sale}>{sale.totalSale || "00"}</div>
+          <div className={styles.sold}>{sale.totalSoldItem || "00"}</div>
+          <div className={styles.notSold}>{sale.unSoldItem || "00"}</div>
         </div>
       </div>
     </div>

@@ -1,22 +1,39 @@
 .statsHeader {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  background-color: #0a0a0a;
+  border: 5px solid white;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  margin: 0 !important;
+  /* width: 100%; */
 }
 
 .table {
-  border: 5px solid #facc15;
-  border-radius: 20px;
-  padding: 20px;
-  font-size: 25px;
-  font-weight: 500;
-  width: 500px;
-  background-color: #fb7185;
+  margin: 0 !important;
+  border: 5px solid white;
+  border-radius: 0 0 20px 20px;
+  padding: 5px 0 5px 70px;
+  font-size: 15px;
+  background-color: #0a0a0a;
   color: white;
-
   display: grid;
-  grid-template-columns: 220px 120px;
+  grid-template-columns: 300px 300px 300px;
   gap: 20px;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.stats,
+.tableHeadings {
+  display: contents;
+}
+
+.line {
+  background-color: aliceblue;
+  width: 870px;
+  height: 2px;
+  grid-column: 1 / -1;
+  align-self: stretch;
 }

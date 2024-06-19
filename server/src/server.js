@@ -1,7 +1,10 @@
 require("dotenv").config({ path: "src/.env" });
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+
+app.use(cors());
 app.use(express.json());
 
 const transactionRoutes = require("./routes/transactions.routes");

@@ -82,8 +82,8 @@ const getFigures = async (req, res) => {
     const figure = genAllFigures(all);
 
     res.status(200).json({
-      barChart: figure.categoriesObject,
-      pieChat: figure.priceRange,
+      pieChart: figure.categoriesObject,
+      barChart: figure.priceRange,
       statistics: figure.allStats,
     });
   } catch (error) {
@@ -189,9 +189,9 @@ const genAllFigures = (data) => {
   const notSold = data.filter((e) => e.sold === false);
   const totalSale = sold.reduce((acc, curr) => acc + curr.price, 0);
   const allStats = {
-    "Total Sale": totalSale,
-    "Total sold item": sold.length,
-    "Total not Sold item": notSold.length,
+    totalSale: totalSale,
+    totalSoldItem: sold.length,
+    unSoldItem: notSold.length,
   };
   return { categoriesObject, priceRange, allStats };
 };

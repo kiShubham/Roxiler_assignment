@@ -1,15 +1,101 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 45px;
+  padding: 0 10px;
 }
+.initializeBar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .input {
-  padding: 5px 10px;
+  padding: 0px 5px;
   height: 50px;
-  background-color: #22c55e;
-  color: white;
-  border: none;
-  font-size: 20px;
+  width: 247px;
+  /* background-color: #020617; */
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  /* border: none; */
+  font-size: 18px;
+  font-family: "JetBrains Mono";
   border-radius: 12px;
   font-weight: 500;
+}
+.charts {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* padding: 20px 15px 20px 20px; */
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+.pagination {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  button {
+    background-color: black;
+  }
+}
+
+.initializeBtn {
+  position: relative;
+  /* padding: 15px 40px; */
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  /* background: linear-gradient(145deg, #f1f1f1, #0d8d02, #41f01d); */
+  background-color: #007bff;
+  border: none;
+  /* border-radius: 50px; */
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+.initializeBtn:hover {
+  transform: scale(1.05);
+}
+.initializeBtn:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 111%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(45deg);
+  transition: all 1s ease;
+}
+.initializeBtn:hover:before {
+  top: -50%;
+  left: 150%;
+  transition: all 1.5s ease;
+}
+.initializeBtn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50px;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+.initializeBtn:hover:after {
+  left: 125%;
 }

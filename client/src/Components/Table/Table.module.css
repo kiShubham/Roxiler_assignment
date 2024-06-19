@@ -1,10 +1,12 @@
 .table {
   display: grid;
-  grid-template-columns: 50px 200px 400px 100px 150px 100px 100px;
-  gap: 10px;
+  grid-template-columns: 50px 200px 400px 100px 150px 130px 100px;
+  /* gap: 0px; */
+  /* row-gap: 20px; */
   border-radius: 12px;
   padding: 15px;
-  background-color: #93c5fd;
+  background-color: #efefef;
+  background-color: rgb(0, 0, 0, 0.8);
 }
 
 .tableHeadings,
@@ -41,31 +43,20 @@
 }
 
 .tableHeadings > div {
-  border: 2.5px solid white;
+  border-bottom: 2px solid white;
   font-weight: 500;
-  font-size: larger;
+  font-size: 18px;
   text-align: center;
   padding: 5px 0;
-  border-radius: 5px;
-  background-color: #fb7185;
+  color: white;
 }
 .transaction > div {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border: 2.5px solid white;
-  border-radius: 8px;
-  padding: 5px 15px;
+  border-bottom: 1px solid white;
+  padding: 20px 15px;
   color: white;
-  font-size: larger;
-  background-color: #8b5cf6;
+  font-size: 15px;
   font-weight: 500;
-}
-.transaction {
-  /* display: none; */
-}
-.transaction > .description {
-  /* height: 200px; */
-  /* overflow: hidden; */
 }
