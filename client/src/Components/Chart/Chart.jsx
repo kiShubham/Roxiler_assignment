@@ -22,7 +22,7 @@ const ChartComponent = ({ bool, pData, bData }) => {
   };
 
   Chart.defaults.font.size = 15;
-  //   Chart.defaults.font.family = "sans";
+  Chart.defaults.font.family = "JetBrains Mono";
 
   return (
     <div>

@@ -8,7 +8,7 @@ const Backend_EndPoint = "https://roxiler-assignment-57wd.onrender.com";
 export const initialize = async () => {
   try {
     const res = await axios.get(`${Backend_EndPoint}/api/transactions/`);
-    console.log(res.status); //200
+    // console.log(res.status); //200
     return res.status;
   } catch (error) {
     console.error(error);

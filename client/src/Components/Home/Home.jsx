@@ -56,8 +56,6 @@ const Home = () => {
     }
   }, [month]);
 
-  console.log(statsAndChartData.statistics);
-
   return (
     <div className={styles.home}>
       <div className={styles.header}>

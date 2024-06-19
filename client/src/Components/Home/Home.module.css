@@ -52,14 +52,11 @@
 
 .initializeBtn {
   position: relative;
-  /* padding: 15px 40px; */
   font-size: 20px;
   font-weight: 500;
   color: white;
-  /* background: linear-gradient(145deg, #f1f1f1, #0d8d02, #41f01d); */
   background-color: #007bff;
   border: none;
-  /* border-radius: 50px; */
   cursor: pointer;
   overflow: hidden;
   outline: none;

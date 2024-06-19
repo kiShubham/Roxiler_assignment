@@ -204,9 +204,3 @@ module.exports = {
   getPieChartDetails,
   getFigures,
 };
-
-/* 
-   if (!month)
-      return res
-        .status(400)
-        .json({ message: "Month query parameter is required" }); */
