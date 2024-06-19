@@ -21,9 +21,4 @@ api needed :
 
 6. GET / Create an API which fetches the data from all the 3 APIs mentioned above ;
 
-Frontend:
 
-1. A table : mui / tailwind css ;
-2. a piechart : chart.js
-   .3 a bar chart: chart.js
-   .4 trasaction statistics : tailwind css table
