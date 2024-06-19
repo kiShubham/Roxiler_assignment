@@ -3,7 +3,7 @@ const services = require("../services/transactions.service");
 
 const initialize = async (req, res) => {
   try {
-    if ((await fetchMonthlyDetails()).length) {
+    if ((await fetchMonthlyDetails()).length > 0) {
       return res.sendStatus(200);
     }
     const response = await axios.get(
@@ -22,9 +22,11 @@ const initialize = async (req, res) => {
 
 const fetchAll = async (req, res) => {
   try {
-    const { month } = req.query;
+    const { month, pageNum } = req.query;
+    let page = pageNum || 1;
     const all = await fetchMonthlyDetails(month);
-    res.status(200).json(all);
+    const pageData = all.slice(page * 10 - 10, page * 10); //pagination
+    res.status(200).json(pageData);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

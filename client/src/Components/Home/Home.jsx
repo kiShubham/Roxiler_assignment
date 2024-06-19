@@ -13,12 +13,23 @@ const Home = () => {
   const [transactionData, setTransactionData] = useState([]);
   const [statsAndChartData, setStatsAndChartData] = useState({});
   const [initialization, setInitialized] = useState(false);
+  const [pageNum, setPageNum] = useState(1);
 
   const handleMonth = (data) => {
     let month = data.trim();
     if (data != "month") {
-      setMonth(data);
+      setMonth(month);
     }
+  };
+
+  const handlePageNum = (bool) => {
+    if (initialization)
+      bool === true && pageNum < 2
+        ? setPageNum((prev) => prev + 1)
+        : pageNum > 1
+        ? setPageNum((prev) => prev - 1)
+        : null;
+    //not going beyond 2nd page , as no month has more than 10 items;after 2 coming back to 1
   };
 
   const handleSearch = (e) => {
@@ -37,8 +48,8 @@ const Home = () => {
 
   useEffect(() => {
     if (initialization) {
-      const getTransactionData = async (month) => {
-        const res = await fetchAllTransactions(month);
+      const getTransactionData = async (month, pageNum) => {
+        const res = await fetchAllTransactions(month, pageNum);
         setTransactionData(res.data);
         // console.log(res.data);
       };
@@ -49,13 +60,15 @@ const Home = () => {
       };
 
       const fetchData = async () => {
-        await getTransactionData(month);
+        await getTransactionData(month, pageNum);
         await getStatsAndChartData(month);
       };
       fetchData();
     }
-  }, [month]);
+  }, [month, pageNum]);
 
+  console.log(pageNum);
+  console.log(transactionData);
   return (
     <div className={styles.home}>
       <div className={styles.header}>
@@ -90,8 +103,19 @@ const Home = () => {
         <Table data={transactionData} />
       </div>
       <div className={styles.pagination}>
-        <button className={styles.initializeBtn}>prev page</button>
-        <button className={styles.initializeBtn}>next page</button>
+        <button
+          className={styles.initializeBtn}
+          onClick={() => handlePageNum(false)}
+        >
+          prev page
+        </button>
+        <h3 style={{ color: "black" }}>{pageNum}</h3>
+        <button
+          className={styles.initializeBtn}
+          onClick={() => handlePageNum(true)}
+        >
+          next page
+        </button>
       </div>
     </div>
   );

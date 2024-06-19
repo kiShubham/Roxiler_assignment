@@ -15,10 +15,10 @@ export const initialize = async () => {
   }
 };
 
-export const fetchAllTransactions = async (month) => {
+export const fetchAllTransactions = async (month, pageNum) => {
   try {
     const res = await axios.get(
-      `${Backend_EndPoint}/api/transactions/all?month=${month}`
+      `${Backend_EndPoint}/api/transactions/all?month=${month}&pageNum=${pageNum}`
     );
     return res;
   } catch (error) {
