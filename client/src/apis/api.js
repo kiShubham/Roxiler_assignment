@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const Backend_EndPoint = "http://localhost:5000";
+// const Backend_EndPoint = "http://localhost:4000";
+const Backend_EndPoint = "https://roxiler-assignment-57wd.onrender.com";
 
 //-------------------------------transacitions-------------------------------
 
