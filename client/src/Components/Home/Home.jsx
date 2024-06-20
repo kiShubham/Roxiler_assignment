@@ -32,8 +32,6 @@ const Home = () => {
         ? setPageNum((prev) => prev - 1)
         : null;
     return;
-    //*not going beyond 2nd page , as no month has more than 10 items;after 2 coming back to 1
-    //*if showing all items then it should be 7 pages , last page will be empty, showing no more remaining products
   };
 
   const handleSearch = (e) => {
