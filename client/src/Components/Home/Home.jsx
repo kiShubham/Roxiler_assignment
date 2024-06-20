@@ -84,7 +84,7 @@ const Home = () => {
       };
       fetchData();
     }
-  }, [month, pageNum, searchText, monthVsSearch]);
+  }, [initialization, month, pageNum, searchText, monthVsSearch]);
 
   return (
     <div className={styles.home}>
@@ -100,7 +100,7 @@ const Home = () => {
       </div>
       <div className={styles.initializeBar}>
         <button onClick={handleInitializeBtn} className={styles.initializeBtn}>
-          {initialization ? "data initialized" : "initialize data"}
+          {initialization ? "Data Initialized" : "Initialize Data"}
         </button>
         <div>
           <StatsTable
