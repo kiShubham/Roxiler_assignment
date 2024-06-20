@@ -2,9 +2,19 @@
 import styles from "./Table.module.css";
 // import data from "../../assets/seedData.json";
 
-const Table = ({ data }) => {
+const Table = ({ data, month, preference, searchText }) => {
   return (
     <div>
+      <div className={styles.specialClass}>
+        {preference === "search" && searchText
+          ? `search result for : ${searchText} `
+          : month
+          ? `Month : ${month}`
+          : preference === "search" && !searchText
+          ? `showing all items`
+          : `Month : ------`}
+      </div>
+
       <div className={styles.table}>
         <div className={styles.tableHeadings}>
           <div className={styles.id}>ID</div>

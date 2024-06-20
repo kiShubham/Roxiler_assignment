@@ -15,20 +15,45 @@ const initialize = async (req, res) => {
     }
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).json({ message: error.message });
   }
 };
 
 const fetchAll = async (req, res) => {
   try {
-    const { month, pageNum } = req.query;
+    const { month, pageNum, searchText, preference } = req.query;
     let page = pageNum || 1;
+    if (searchText && preference == "search") {
+      let data = await searchData(searchText);
+      const pageData = data.slice(page * 10 - 10, page * 10);
+      return res.status(200).json(pageData);
+    }
+
     const all = await fetchMonthlyDetails(month);
     const pageData = all.slice(page * 10 - 10, page * 10); //pagination
+
     res.status(200).json(pageData);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+const searchData = async (text) => {
+  try {
+    let dex = text.toString().trim().toLowerCase();
+    const allData = await fetchMonthlyDetails();
+    const filteredArr = allData.filter((e) => {
+      if (
+        e.title.toLowerCase().includes(dex) ||
+        e.description.toLowerCase().includes(dex) ||
+        e.price.toString().includes(dex)
+      )
+        return true;
+    });
+    return filteredArr;
+  } catch (error) {
+    throw error;
   }
 };
 
