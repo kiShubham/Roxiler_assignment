@@ -23,7 +23,7 @@ const DropDown = ({ monthHandler, monthBool }) => {
       <option value="month">- - select a month - -</option>
       <option value="January">January</option>
       <option value="February">February</option>
-      <option value="march">March</option>
+      <option value="March">March</option>
       <option value="April">April</option>
       <option value="May">May</option>
       <option value="June">June</option>
