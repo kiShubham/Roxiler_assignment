@@ -14,7 +14,6 @@ const Home = () => {
   const [statsAndChartData, setStatsAndChartData] = useState({});
   const [initialization, setInitialized] = useState(false);
   const [pageNum, setPageNum] = useState(1);
-  const [lastPageNum, setLastPageNum] = useState({ num: 2, bool: false });
   const [monthVsSearch, setMonthVsSearch] = useState("month"); // setting preference
 
   const handleMonth = (data) => {
@@ -24,14 +23,10 @@ const Home = () => {
     }
     setMonthVsSearch("month");
   };
-  console.log(lastPageNum.num, "open");
 
   const handlePageNum = (bool) => {
-    // let lastPageNum = !month && monthVsSearch === "search" ? 7 : 2;
-    console.log(lastPageNum.num, "handlePageNUm");
-
     if (initialization)
-      bool === true && pageNum < lastPageNum.num && transactionData.length > 0
+      bool === true && transactionData.length > 0
         ? setPageNum((prev) => prev + 1)
         : pageNum > 1
         ? setPageNum((prev) => prev - 1)
@@ -90,15 +85,6 @@ const Home = () => {
         await getStatsAndChartData(month);
       };
       fetchData();
-
-      if (!searchText && monthVsSearch == "search" && !month) {
-        //showing all products thats why 7 pages
-        setLastPageNum({ num: 7, bool: false });
-      } else {
-        //showing filtered products thats why 2 pages
-        if (lastPageNum.bool === false) setPageNum(1); // if already page is num is done 1 then do not change again ;
-        setLastPageNum({ num: 2, bool: true });
-      }
     }
   }, [month, pageNum, searchText, monthVsSearch]);
 

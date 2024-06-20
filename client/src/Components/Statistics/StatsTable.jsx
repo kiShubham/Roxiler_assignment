@@ -2,6 +2,7 @@
 import styles from "./StatsTable.module.css";
 
 const StatsTable = ({ month, sale }) => {
+  let totalSale = sale.totalSale || 0;
   return (
     <div className={styles.stats}>
       <div className={styles.statsHeader}>
@@ -15,7 +16,7 @@ const StatsTable = ({ month, sale }) => {
         </div>
         <div className={styles.line}></div>
         <div className={styles.stats}>
-          <div className={styles.sale}>{sale.totalSale || "00"}</div>
+          <div className={styles.sale}>{totalSale.toFixed(2) || "00"}</div>
           <div className={styles.sold}>{sale.totalSoldItem || "00"}</div>
           <div className={styles.notSold}>{sale.unSoldItem || "00"}</div>
         </div>
