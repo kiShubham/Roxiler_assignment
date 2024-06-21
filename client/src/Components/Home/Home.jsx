@@ -15,6 +15,11 @@ const Home = () => {
   const [initialization, setInitialized] = useState(false);
   const [pageNum, setPageNum] = useState(1);
   const [monthVsSearch, setMonthVsSearch] = useState("month"); // setting preference
+  const [old, setOldData] = useState({
+    searchText: "",
+    preference: "month",
+    month: "",
+  });
 
   const handleMonth = (data) => {
     let month = data.trim();
@@ -83,8 +88,33 @@ const Home = () => {
         await getStatsAndChartData(month);
       };
       fetchData();
+
+      const jumpBackToOne = (month, searchText, monthVsSearch) => {
+        //if the searchText CHanges ;//if the preference changes ;// if the month chnges ;
+
+        if (
+          searchText !== old.searchText ||
+          month !== old.month ||
+          monthVsSearch !== old.preference
+        ) {
+          setPageNum(1);
+          setOldData((prev) => ({
+            ...prev,
+            searchText: searchText,
+          }));
+          setOldData((prev) => ({
+            ...prev,
+            month: month,
+          }));
+          setOldData((prev) => ({
+            ...prev,
+            preference: monthVsSearch,
+          }));
+        }
+      };
+      jumpBackToOne(month, searchText, monthVsSearch);
     }
-  }, [initialization, month, pageNum, searchText, monthVsSearch]);
+  }, [initialization, month, pageNum, searchText, monthVsSearch, old]);
 
   return (
     <div className={styles.home}>
